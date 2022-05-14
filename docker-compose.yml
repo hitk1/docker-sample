@@ -1,0 +1,18 @@
+# Primeiro é necessário setar a versão do docker e docker-compose
+# Para isto, é necessario verificar a compatibilidade no site do docker
+# https://docs.docker.com/compose/compose-file/compose-versioning
+version: "3.8"
+
+# Depois é necessario setar os serviços
+services:
+  # Nome do serviço desejado
+  app:
+    # Vai executar o build da imagem 
+    build: .
+    container_name: "application_name"
+    ports:
+      - 3333:3333
+    # Aqui defi"ni-se o WORKDIR e ja fazemos as cópias
+    # No caso, o ponto ".", indicará que queremos copiar todos os arquivos para o local especificado  depois de ":"
+    volumes:
+      - .:/user/app
